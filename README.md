@@ -12,7 +12,7 @@ Distributor/contact forms require the configured API/database below. A direct em
 
 ## Brand assets
 
-The refined owner-supplied Hidden Lake logo is public/images/hidden-lake-logo-master.png (transparent master) and public/images/hidden-lake-logo.png (trimmed web export). The shared BrandMark applies the site copper tint in CSS and appears in the header, footer, homepage seal and age confirmation. Favicons use the exact central emblem from the master, with PNG sizes 16/32/48/192/512, favicon.ico, a 180px Apple touch icon and site.webmanifest.
+The refined owner-supplied Hidden Lake logo is public/images/hidden-lake-logo-master.png (transparent master) and public/images/hidden-lake-logo.png (trimmed web export). The shared BrandMark applies the site copper tint in CSS and appears in the header, footer, homepage seal and age confirmation. Favicons use the complete owner-supplied logo image unchanged except for export sizing (public/images/hidden-lake-favicon-source.png), with PNG sizes 16/32/48/192/512, favicon.ico, a 180px Apple touch icon and site.webmanifest.
 
 ## Signature drinks and policy review
 
