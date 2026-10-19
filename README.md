@@ -1,14 +1,14 @@
-# Copper Pirates
+# Hidden Lake Distillery
 
-## Current relaunch mode
+Producer website for Hidden Lake Distillery in Kalispell, Montana, featuring Whitefish Handcrafted Spirits and Copper Pirates. Cloned from Copper-Pirates with its Git history preserved.
 
-The public site now promotes the flagship rum and distributor inquiries. Shopping code, customer accounts, sample inventory and order history are preserved, with public shopping routes, signup, checkout and order creation disabled by default. Both VITE_COMMERCE_ENABLED and COMMERCE_ENABLED must be independently enabled for a future commerce phase. No public pricing or sample eight-bottle lineup is presented. Staff access remains at /admin.
+## Current website
 
-The proposed label proof is credited to Treeline Creative. Product specifications and producer attribution remain unconfirmed. Trade inquiries collect company, territory, interest and contact consent, with staff statuses and follow-up notes. Apply migration 002 before using the new follow-up statuses.
+The site promotes the distillery and distributor inquiries. Whitefish displays 13 supplied bottle photographs; Copper Pirates displays a clearly labeled packaging concept credited to Treeline Creative. Current expression availability, specifications and trade terms are confirmed directly. No public pricing, shopping, liquor sales or merchandise checkout is offered. Frontend commerce is disabled; keep COMMERCE_ENABLED false on the server.
 
-Standalone Copper Pirates Distillery storefront and backend. Vite + React, Express, Better Auth, PostgreSQL, optional Vercel Blob uploads and Resend email. No Base44 SDK, build plugin, API, hosted media, or runtime is required.
+Business details come from Justin Meccia’s October 18, 2026 email: Hidden Lake Distillery is owned and operated by Table 62 LLC (Montana DSM license holder), at 2134 US Hwy 2 E., Kalispell, MT 59901. Public contact: distillgrillchill@gmail.com. Poynt by GoDaddy is the current POS; no POS integration is needed for this scope.
 
-The current site is a review model: eight sample spirits, supplied cocktail ingredient lists, approved pirate favicon, and highlighted owner-information placeholders. Every order is explicitly a **demo**. This backend cannot charge a card or authorize alcohol fulfillment.
+Distributor/contact forms require the configured API/database below. A direct email link remains available independently. Preview indexing stays disabled pending owner review. See docs/ASSETS.md for supplied asset provenance and remaining content questions.
 
 ## Run locally
 

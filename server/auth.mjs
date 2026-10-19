@@ -7,13 +7,13 @@ export function createAuth(pool, env=process.env, sendMail) {
     await sendMail({to:user.email,subject,text:`${subject}\n\n${url}\n\nIf you did not request this, you can ignore it.`});
   };
   return betterAuth({
-    appName:'Copper Pirates',database:pool,baseURL,secret:env.BETTER_AUTH_SECRET,
+    appName:'Hidden Lake Distillery',database:pool,baseURL,secret:env.BETTER_AUTH_SECRET,
     trustedOrigins:[new URL(baseURL).origin],
     emailAndPassword:{enabled:true,minPasswordLength:12,maxPasswordLength:128,requireEmailVerification:true,
       revokeSessionsOnPasswordReset:true,
-      sendResetPassword:async({user,url})=>deliver(user,url,'Reset your Copper Pirates password')},
+      sendResetPassword:async({user,url})=>deliver(user,url,'Reset your Hidden Lake Distillery password')},
     emailVerification:{sendOnSignUp:true,sendOnSignIn:true,autoSignInAfterVerification:true,
-      sendVerificationEmail:async({user,url})=>deliver(user,url,'Verify your Copper Pirates email')},
+      sendVerificationEmail:async({user,url})=>deliver(user,url,'Verify your Hidden Lake Distillery email')},
     user:{additionalFields:{role:{type:'string',defaultValue:'customer',input:false}},
       changeEmail:{enabled:true},deleteUser:{enabled:true}},
     databaseHooks:{user:{delete:{before:async(user)=>{

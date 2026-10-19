@@ -1,9 +1,9 @@
 import { Link, useParams } from "react-router-dom";
 const data={
- privacy:["Privacy","This relaunch preview stores trade and contact inquiries, including company, contact details, territory, message, and consent. Administrator accounts support inquiry review. Public shopping is disabled. No advertising tags have been enabled by this hardening pass. XXXX — Confirm data controller, service providers, retention periods, rights requests and privacy contact before launch."],
- terms:["Terms","Demonstration only: checkout does not create an enforceable sale, collect payment or reserve stock. XXXX — Confirm legal seller, customer terms and approved purchase conditions."],
- shipping:["Shipping & Pickup","All ordering is currently a demonstration. No destination is approved for shipping and no pickup reservation is made. XXXX — Confirm shipping eligibility, carrier, adult signature, pickup address, hours, quantity limits, taxes and charges."],
- returns:["Returns & Support","XXXX — Approve cancellation, damaged-shipment, refund and return policies and the customer support contact. No refund promises are made by this model."],
+ privacy:["Privacy","This website preview stores trade and contact inquiries, including company, contact details, territory, message, and consent. Administrator accounts support inquiry review. Public shopping is disabled. No advertising tags have been enabled by this hardening pass. Hidden Lake Distillery is owned and operated by Table 62 LLC. Privacy questions may be sent to distillgrillchill@gmail.com. Detailed retention and provider information is under review before launch."],
+ terms:["Terms","This website presents Hidden Lake Distillery and its brands for informational and trade inquiry purposes. No online sales, payments or stock reservations are offered. Product and territory availability and commercial terms are confirmed directly."],
+ shipping:["Shipping & Pickup","This website does not accept orders or arrange shipping or pickup. Contact the distillery with product or trade questions."],
+ returns:["Returns & Support","For support, contact distillgrillchill@gmail.com. This website does not process purchases or returns."],
  responsible:["Responsible Consumption","For adults 21 and older. Please drink responsibly. An entrance confirmation or self-reported birth date does not verify identity. Actual sales require the approved age and fulfillment verification process."]
 };
 export default function Policy(){

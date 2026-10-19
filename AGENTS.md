@@ -1,4 +1,4 @@
-# Copper Pirates
+# Hidden Lake Distillery
 
 Standalone Vite/React storefront with an Express/Better Auth/PostgreSQL API.
 Read README.md and docs/DEPLOYMENT.md before changes. Run npm run check.

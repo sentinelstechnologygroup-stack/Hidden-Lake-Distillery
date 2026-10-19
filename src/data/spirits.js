@@ -1,11 +1,11 @@
 // Copper Pirates brand settings and locally served model images.
 export const distillery = {
-  name: "Copper Pirates Distillery",
+  name: "Hidden Lake Distillery",
   city: "Kalispell",
   state: "Montana",
   zip: "59901",
   coordinates: "48.1978° N, 114.3161° W",
-  tagline: "Converting Cowboys to Pirates. Everyday.",
+  tagline: "Montana roots. Independent spirit.",
   heroImage:
     "/images/distillery-hero.png",
   ageGateImage:

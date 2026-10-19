@@ -1,3 +1,3 @@
-// Default-off commerce must be enabled independently on the server after launch review.
-export const commerceEnabled=import.meta.env.VITE_COMMERCE_ENABLED==='true';
-export const brand={name:'Copper Pirates',descriptor:'Montana Rum',tagline:'Converting Cowboys to Pirates. Everyday.',producer:'XXXX — Confirm legal producer name and attribution',image:'/images/copper-pirates-label-concept.jpeg'};
+// Commerce stays disabled for the distributor website.
+export const commerceEnabled=false;
+export const brand={name:'Hidden Lake Distillery',descriptor:'Montana Spirits',tagline:'Montana roots. Independent spirit.',producer:'Hidden Lake Distillery · Owned and operated by Table 62 LLC',image:'/images/copper-pirates-label-concept.jpeg'};

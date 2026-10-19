@@ -8,7 +8,7 @@ import { useAuth } from "@/lib/AuthContext";
 
 const links = [
   { label: "Home", path: "/" },
-  { label: "Our Rum", path: "/spirits" },
+  { label: "Products", path: "/spirits" },
   { label: "Our Story", path: "/about" },
   { label: "The Craft", path: "/craft" },
   { label: "Distribution", path: "/distribution" },

@@ -183,7 +183,7 @@ export function createApp({pool,auth,env=process.env,sendMail}){
     const {website,...details}=p;
     await transaction(pool,async db=>{
       await db.query('INSERT INTO inquiries(id,data) VALUES($1,$2)',[id,{...details,subject:'Wholesale',inquiry_type:'distribution',consent_at:new Date().toISOString(),follow_up_notes:''}]);
-      if(env.CONTACT_EMAIL)await db.query('INSERT INTO email_outbox(id,recipient,subject,body) VALUES($1,$2,$3,$4)',[randomUUID(),env.CONTACT_EMAIL,'Copper Pirates distributor inquiry',`${p.company} — ${p.name} <${p.email}>\nTerritory: ${p.territory}\nInterest: ${p.interest}\n\n${p.message}`]);
+      if(env.CONTACT_EMAIL)await db.query('INSERT INTO email_outbox(id,recipient,subject,body) VALUES($1,$2,$3,$4)',[randomUUID(),env.CONTACT_EMAIL,'Hidden Lake Distillery distributor inquiry',`${p.company} — ${p.name} <${p.email}>\nTerritory: ${p.territory}\nInterest: ${p.interest}\n\n${p.message}`]);
     });
     res.status(201).json({ok:true,id});
   });

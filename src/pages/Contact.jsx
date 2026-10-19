@@ -4,7 +4,7 @@ import { useState } from "react";
 import { MapPin, Send } from "lucide-react";
 import { distillery } from "@/data/spirits";
 import PageHero from "@/components/PageHero";
-import LicensePlaceholder from "@/components/LicensePlaceholder";
+
 
 export default function Contact() {
   const [error,setError]=useState("");
@@ -17,16 +17,16 @@ export default function Contact() {
   const submit = async(e) => {
     e.preventDefault();setBusy(true);setError("");
     try{await request('/inquiries',{method:'POST',body:JSON.stringify(form)});setSent(true);}
-    catch(e){setError(e.status===503?"The contact service is not available yet. Please reach out to the representative who shared this preview.":e.message);}finally{setBusy(false);}
+    catch(e){setError(e.status===503?"The contact service is not available yet. Please email distillgrillchill@gmail.com.":e.message);}finally{setBusy(false);}
   };
 
   return (
     <div className="bg-background">
       <PageHero
-        label="Message in a Bottle"
-        title="Send word to the crew"
-        subtitle="Questions about Copper Pirates, the relaunch, or the product? For trade opportunities, use our dedicated distributor inquiry page."
-        image={distillery.pourImage}
+        label="Contact Hidden Lake Distillery"
+        title="Let’s start a conversation"
+        subtitle="Questions about Hidden Lake Distillery, Whitefish or Copper Pirates? For trade opportunities, use our dedicated distributor inquiry page."
+        image="/images/distillery-community.jpg"
       />
 
       <section className="py-20 md:py-28">
@@ -40,7 +40,7 @@ export default function Contact() {
                   Your message has been recorded.
                 </p>
                 <p className="font-body text-lg text-muted-foreground leading-relaxed">
-                  The crew can review your inquiry in the administration dashboard.
+                  Thank you for contacting Hidden Lake Distillery. Our team will review your inquiry.
                 </p>
                 <button
                   onClick={() => {
@@ -81,10 +81,10 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="font-label text-[10px] text-copper block mb-2">
+                  <label htmlFor="field-subject" className="font-label text-[10px] text-copper block mb-2">
                     Subject
                   </label>
-                  <select
+                  <select id="field-subject"
                     value={form.subject}
                     onChange={update("subject")}
                     className="w-full bg-background border-b border-border py-3 font-body text-lg text-parchment focus:border-copper outline-none transition-colors"
@@ -97,10 +97,10 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="font-label text-[10px] text-copper block mb-2">
+                  <label htmlFor="field-message" className="font-label text-[10px] text-copper block mb-2">
                     Message
                   </label>
-                  <textarea
+                  <textarea id="field-message"
                     required
                     rows={5}
                     value={form.message}
@@ -124,16 +124,16 @@ export default function Contact() {
           <div className="md:col-span-2 space-y-8">
             <div>
               <p className="font-label text-xs text-copper mb-5">Direct Line</p>
-              <p className="bg-yellow-200 text-black p-3">XXXX — Business phone</p>
-              <p className="bg-yellow-200 text-black p-3">XXXX — Business email</p>
+
+              <a className="text-copper underline break-all" href="mailto:distillgrillchill@gmail.com">distillgrillchill@gmail.com</a>
             </div>
 
             <div>
-              <p className="font-label text-xs text-copper mb-5">Home Port</p>
+              <p className="font-label text-xs text-copper mb-5">Our distillery</p>
               <p className="font-body text-lg text-muted-foreground leading-relaxed flex items-start gap-3">
                 <MapPin size={18} className="mt-1 shrink-0 text-copper/70" />
                 <span>
-                  {distillery.city}, {distillery.state} {distillery.zip}
+                  {distillery.address}<br />{distillery.city}, {distillery.state} {distillery.zip}
                   <br />
                   <span className="font-label text-xs text-muted-foreground/70">
                     {distillery.coordinates}
@@ -145,7 +145,7 @@ export default function Contact() {
             <div>
               <p className="font-label text-xs text-copper mb-5">Licensing</p>
               <div className="flex flex-col gap-3">
-                <LicensePlaceholder label="Licensing authority and distiller license #" />
+                <p className="text-muted-foreground">Owned and operated by Table 62 LLC, holder of the Montana DSM license permitting distillation.</p>
               </div>
             </div>
 

@@ -2,7 +2,7 @@
 
 ## Deployment settings
 
-Import `sentinelstechnologygroup-stack/Copper-Pirates` as a Vercel project. Use the repository root, Vite preset, Node 24, `npm ci`, `npm run build`, output `dist`. `vercel.json` routes all `/api/*` requests to the Node function before the SPA fallback. Keep Preview deployments protected while owner placeholders are present.
+Import `sentinelstechnologygroup-stack/Hidden-Lake-Distillery` as a Vercel project. Use the repository root, Vite preset, Node 24, `npm ci`, `npm run build`, output `dist`. `vercel.json` routes all `/api/*` requests to the Node function before the SPA fallback. Keep Preview deployments protected while owner placeholders are present.
 
 Provision a dedicated PostgreSQL database and apply its recommended pooled/TLS connection URL. Use separate databases or branches for Preview and Production. Do not reuse an unrelated client's database or production customer data in previews.
 
@@ -29,7 +29,7 @@ Verify real HTTPS cookies and CSRF behavior on the final host, email delivery/re
 
 ## Commerce handoff still required
 
-Justin's current POS and approved alcohol-commerce provider are pending. There is deliberately no live charge, invented shipping authorization, tax quote, stock reservation, or fulfillment promise. Existing orders have an enforced demo-only database constraint; configuration cannot accidentally turn these into paid purchases.
+Justin confirmed Poynt by GoDaddy as the POS. Commerce is outside the current distributor-website scope. There is deliberately no live charge, invented shipping authorization, tax quote, stock reservation, or fulfillment promise. Existing orders have an enforced demo-only database constraint; configuration cannot accidentally turn these into paid purchases.
 
 The selected provider must supply hosted/tokenized payment setup, authenticated webhook signatures with replay protection and event deduplication, real inventory reservations, refunds, tax calculation, destination/product eligibility, verified age checks, adult-signature fulfillment, pickup ID checks, and approved customer notifications. Extend the payment-method table only with provider references from trusted server-to-server events. Never accept real card details or a browser-supplied payment success flag.
 

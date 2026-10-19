@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { MapPin } from "lucide-react";
 import { distillery } from "@/data/spirits";
 import BrandMark from "@/components/BrandMark";
-import LicensePlaceholder from "@/components/LicensePlaceholder";
+
 
 export default function Footer() {
   return (
@@ -14,7 +14,7 @@ export default function Footer() {
               <BrandMark />
             </p>
             <p className="font-body text-muted-foreground leading-relaxed max-w-sm">
-              Converting Cowboys to Pirates. Everyday. A family-owned Montana rum brand beginning a focused relaunch.
+              Montana roots. Independent spirit. The home of Whitefish Handcrafted Spirits and Copper Pirates.
             </p>
           </div>
 
@@ -22,7 +22,7 @@ export default function Footer() {
             <p className="font-label text-[11px] text-copper mb-5">Explore</p>
             <ul className="space-y-3">
               {[
-                { label: "Our Rum", path: "/spirits" },
+                { label: "Products", path: "/spirits" },
                 { label: "Cocktails", path: "/cocktails" },
   { label: "The Craft", path: "/craft" },
                 { label: "Our Story", path: "/about" },
@@ -42,12 +42,12 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="font-label text-[11px] text-copper mb-5">Home Port</p>
+            <p className="font-label text-[11px] text-copper mb-5">Our distillery</p>
             <p className="font-body text-muted-foreground leading-relaxed mb-4 flex items-start gap-2">
               <MapPin size={16} className="mt-1 shrink-0 text-copper/70" />
-              {distillery.city}, {distillery.state} {distillery.zip}
+              <span>{distillery.address}<br />{distillery.city}, {distillery.state} {distillery.zip}</span>
             </p>
-            <p className="bg-yellow-200 text-black p-2 text-sm">XXXX — Official social profile links</p>
+            <a href="mailto:distillgrillchill@gmail.com" className="text-copper underline break-all">distillgrillchill@gmail.com</a>
           </div>
         </div>
 
@@ -57,12 +57,12 @@ export default function Footer() {
         <div className="hairline my-10" />
 
         <div className="flex flex-col gap-4">
-          <LicensePlaceholder label="Legal producer name, attribution, licensing authority and disclosures" />
+          <p className="text-muted-foreground leading-relaxed">Distilled, Bottled and Labeled at<br />Hidden Lake Distillery<br />2134 US Hwy 2 E.<br />Kalispell, MT 59901</p><p className="text-sm text-muted-foreground">Owned and operated by Table 62 LLC · Montana DSM license holder</p>
         </div>
         <div className="hairline my-6" />
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="font-label text-[10px] text-muted-foreground/70 tracking-widest">
-            © {new Date().getFullYear()} Copper Pirates Montana Rum · All rights reserved
+            © {new Date().getFullYear()} Hidden Lake Distillery · All rights reserved
           </p>
           <p className="font-label text-[10px] text-muted-foreground/70 tracking-widest text-center">
             Please drink responsibly · 21+ only

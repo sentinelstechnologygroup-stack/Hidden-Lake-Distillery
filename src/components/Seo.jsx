@@ -1,20 +1,14 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-const brand="Copper Pirates Montana Rum";
+const brand="Hidden Lake Distillery";
 const routes={
- "/distribution":["Montana Rum Distribution Inquiries","Explore Copper Pirates Montana Rum and discuss potential Montana, regional and national distribution partnerships. Territory availability and launch details are confirmed directly."],
- "/cocktails":["Signature Rum Cocktails","Explore serving concepts for the Copper Pirates flagship rum. Final recipes and product details await approval."],
- "/":["Montana Rum Distillery in Kalispell", "Discover a family-owned Montana rum distillery. Explore the rum collection, our craft and the story behind Converting Cowboys to Pirates. Everyday."],
- "/spirits":["Our Flagship Rum","Meet the Copper Pirates Montana Rum relaunch, proposed packaging, product story, and distributor inquiry information."],
- "/craft":["Our Distilling Craft","Explore the inspiration and craft behind our Montana rum."],
- "/about":["Our Family Story","Meet the family-owned distillery building a distinctive rum brand in Kalispell, Montana."],
- "/contact":["Contact the Distillery","Contact Copper Pirates Distillery about rum, distribution and business inquiries."],
- "/account":["My Account","Manage your customer profile, addresses and orders."],
- "/checkout":["Checkout","Review your demonstration order."],
- "/login":["Log In","Log in to your customer account."],
- "/register":["Create an Account","Create a customer account."],
- "/forgot-password":["Reset Your Password","Request a secure password reset."],
- "/reset-password":["Choose a New Password","Reset your account password."]
+ "/":["Montana Spirits in Kalispell","Discover Hidden Lake Distillery, producer of Whitefish Handcrafted Spirits and Copper Pirates in Kalispell, Montana."],
+ "/spirits":["Our Brands & Products","Explore Whitefish Handcrafted Spirits and Copper Pirates rum from Hidden Lake Distillery. Request product and distribution information."],
+ "/distribution":["Distributor & Trade Inquiries","Connect with Hidden Lake Distillery about Whitefish, Copper Pirates and distribution opportunities for your market."],
+ "/about":["Our Story","Meet Hidden Lake Distillery, the Montana producer behind Whitefish Handcrafted Spirits and Copper Pirates."],
+ "/craft":["Our Distillery","Learn about Hidden Lake Distillery in Kalispell, Montana, owned and operated by Table 62 LLC."],
+ "/contact":["Contact Our Team","Contact Hidden Lake Distillery for product, distribution and business inquiries."],
+ "/cocktails":["Serving Inspiration","Explore cocktail ideas and contact Hidden Lake Distillery for approved serving information."]
 };
 export function setMeta(name,content,property=false) {
   const attr=property?"property":"name";
@@ -25,7 +19,7 @@ export function setMeta(name,content,property=false) {
 export default function Seo() {
  const {pathname}=useLocation();
  useEffect(()=>{
-  const route=routes[pathname] || (pathname.startsWith("/spirits/")?["Rum Details","Explore this rum and its tasting notes."]:pathname.startsWith("/policies/")?["Customer Information","Customer policies and responsible consumption information."]:["Page","Copper Pirates Distillery"]);
+  const route=routes[pathname] || (pathname.startsWith("/spirits/")?["Rum Details","Explore this rum and its tasting notes."]:pathname.startsWith("/policies/")?["Customer Information","Customer policies and responsible consumption information."]:["Page","Hidden Lake Distillery"]);
   const title=route[0]+" | "+brand;
   document.title=title;setMeta("description",route[1]);
   setMeta("og:title",title,true);setMeta("og:description",route[1],true);setMeta("og:type","website",true);

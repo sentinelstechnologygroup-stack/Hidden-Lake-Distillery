@@ -52,24 +52,24 @@ export default function AgeGate() {
           <div className="animate-fade-in">
             <p className="font-label text-xs text-copper mb-6">Access Denied</p>
             <h2 className="font-display text-3xl md:text-4xl text-parchment leading-tight mb-6">
-              The hold stays locked.
+              For adults 21 and older.
             </h2>
             <p className="font-body text-lg text-muted-foreground leading-relaxed">
-              You must be of legal drinking age (21+) to enter Copper Pirates
-              Distillery. Come back when you've earned your sea legs.
+              You must be of legal drinking age (21+) to enter Hidden Lake
+              Distillery.
             </p>
           </div>
         ) : (
           <div className="animate-fade-in">
             <p className="font-label text-xs text-copper mb-6">
-              Copper Pirates Distillery · Kalispell, MT
+              Hidden Lake Distillery · Kalispell, MT
             </p>
             <h2 className="font-display text-4xl md:text-5xl text-parchment leading-[1.05] mb-5">
               Are you 21 or older?
             </h2>
             <p className="font-body text-lg text-muted-foreground leading-relaxed mb-10">
-              We distill rum in whiskey country. Before we open the hold, we
-              need to know you're of legal age to come aboard.
+              Welcome to Hidden Lake Distillery, home of Whitefish Handcrafted Spirits
+              and Copper Pirates. Please confirm your age to explore.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -77,7 +77,7 @@ export default function AgeGate() {
                 onClick={confirm}
                 className="w-full sm:w-auto px-10 py-3.5 bg-copper text-background font-label text-sm tracking-widest uppercase hover:bg-copper/90 transition-colors"
               >
-                Aye, I'm 21+
+                Yes, I’m 21+
               </button>
               <button
                 onClick={() => setDenied(true)}
