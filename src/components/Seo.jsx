@@ -10,7 +10,10 @@ const routes={
  "/about":["Our Story","Meet Hidden Lake Distillery, the Montana producer behind Whitefish Handcrafted Spirits and Copper Pirates."],
  "/craft":["Our Distillery","Learn about Hidden Lake Distillery in Kalispell, Montana, owned and operated by Table 62 LLC."],
  "/contact":["Contact Our Team","Contact Hidden Lake Distillery for product, distribution and business inquiries."],
- "/cocktails":["Serving Inspiration","Explore cocktail ideas and contact Hidden Lake Distillery for approved serving information."]
+ "/cocktails":["Signature Drinks","Explore fourteen signature rum cocktails from the Hidden Lake Distillery house menu, plus zero-proof alternatives on request."],
+ "/policies/privacy":["Privacy Notice","How Hidden Lake Distillery handles website and trade-inquiry information and privacy requests."],
+ "/policies/terms":["Website Terms","Terms for the Hidden Lake Distillery informational website and distributor inquiries."],
+ "/policies/responsible":["Responsible Consumption","Alcohol safety, Montana responsible-service information and treatment resources. Available without age confirmation."]
 };
 export function setMeta(name,content,property=false) {
   const attr=property?"property":"name";

@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import { distillery } from "@/data/spirits";
 
 const STORAGE_KEY = "cpd_age_verified";
@@ -15,10 +16,10 @@ export default function AgeGate() {
     const previous=document.activeElement;
     const overflow=document.body.style.overflow;
     document.body.style.overflow="hidden";
-    dialog.current?.querySelector("button")?.focus();
+    dialog.current?.querySelector("button,a[href]")?.focus();
     const trap=(e)=>{
       if(e.key!=="Tab")return;
-      const buttons=dialog.current?.querySelectorAll("button");
+      const buttons=dialog.current?.querySelectorAll("button,a[href]");
       if(!buttons?.length){e.preventDefault();return;}
       const first=buttons[0], last=buttons[buttons.length-1];
       if(e.shiftKey && document.activeElement===first){e.preventDefault();last.focus();}
@@ -93,6 +94,7 @@ export default function AgeGate() {
             </p>
           </div>
         )}
+        <nav className="flex justify-center gap-6 mt-7 text-sm text-parchment underline" aria-label="Safety and privacy information"><Link to="/policies/responsible">Responsible consumption &amp; support</Link><Link to="/policies/privacy">Privacy</Link></nav>
       </div>
     </div>
   );

@@ -1,13 +1,13 @@
 import { Image } from "@/components/ui/image";
 
-export default function PageHero({ label, title, subtitle, image }) {
+export default function PageHero({ label, title, subtitle, image, imageAlt = null, caption = null }) {
   return (
     <section className="relative h-[60vh] min-h-[420px] flex items-end overflow-hidden">
       <div className="absolute inset-0">
         {image && (
           <Image
             src={image}
-            alt={title}
+            alt={imageAlt || title}
             fittingType="fill"
             className="w-full h-full object-cover"
           />
@@ -25,6 +25,7 @@ export default function PageHero({ label, title, subtitle, image }) {
           </p>
         )}
       </div>
+      {caption && <p className="absolute bottom-3 right-5 z-10 text-[10px] text-parchment/60 max-w-[230px] text-right">{caption}</p>}
     </section>
   );
 }

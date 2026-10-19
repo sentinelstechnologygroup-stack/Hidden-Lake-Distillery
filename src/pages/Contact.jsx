@@ -26,7 +26,9 @@ export default function Contact() {
         label="Contact Hidden Lake Distillery"
         title="Let’s start a conversation"
         subtitle="Questions about Hidden Lake Distillery, Whitefish or Copper Pirates? For trade opportunities, use our dedicated distributor inquiry page."
-        image="/images/distillery-community.jpg"
+        image="/images/contact-trade-hero-concept.png"
+        imageAlt="Illustrative spirits sample bottle and tasting glasses in a timber distillery setting"
+        caption="Illustrative concept · venue photography to follow"
       />
 
       <section className="py-20 md:py-28">
@@ -53,7 +55,7 @@ export default function Contact() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={submit} className="space-y-6">{error && <p role="alert">{error}</p>}
+              <form onSubmit={submit} className="space-y-6"><p className="text-sm text-muted-foreground">We use your details to respond to this inquiry. Please read our <Link to="/policies/privacy" className="underline">Privacy Notice</Link>. Do not submit sensitive personal information.</p>{error && <p role="alert">{error}</p>}
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="field-name" className="font-label text-[10px] text-copper block mb-2">

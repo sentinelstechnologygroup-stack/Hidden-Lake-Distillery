@@ -57,7 +57,20 @@ try{
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),true,'Mobile overflow: '+route);
   await page.screenshot({path:'test-artifacts/'+(route==='/'?'home':route.split('/').pop())+'-mobile.png',fullPage:true});
  }
- assert.deepEqual(errors,[]);console.log('Browser portfolio flow passed: brand navigation, Whitefish filters and 13 images, Copper Pirates bottle, product inquiry context, disabled commerce, SQL inquiry submission, four mobile layouts.');
+
+ await page.setViewportSize({width:1440,height:1000});await page.goto(base+'/cocktails');await page.locator('.cocktail-entry').first().waitFor();assert.equal(await page.locator('.cocktail-entry').count(),14);await page.getByRole('heading',{name:'Huckleberry Mojito',exact:true}).waitFor();await page.getByRole('heading',{name:'Pirate Painkiller',exact:true}).waitFor();await page.getByRole('heading',{name:'All the occasion. An alcohol-free option.'}).waitFor();
+ for(const route of ['/cocktails','/about','/contact','/policies/privacy','/policies/terms','/policies/responsible']){
+  for(const [size,width,height] of [['desktop',1440,1000],['mobile',390,844]]){
+   await page.setViewportSize({width,height});await page.goto(base+route);await page.locator('h1').waitFor();
+   for(const image of await page.locator('img').all()){await image.evaluate(async img=>{img.loading='eager';await img.decode();});}
+   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),true,'Overflow: '+route+' '+size);
+   await page.screenshot({path:'test-artifacts/'+route.split('/').pop()+'-'+size+'.png',fullPage:true});
+  }
+ }
+ await page.goto(base+'/about');await page.getByRole('heading',{name:/Made in Montana/}).waitFor();assert.equal(await page.locator('img[src="/images/distillery-community.jpg"]').count(),0);
+ await page.goto(base+'/contact');assert.equal(await page.locator('img[src="/images/contact-trade-hero-concept.png"]').count(),1);
+ const safetyContext=await browser.newContext();const safetyPage=await safetyContext.newPage();await safetyPage.goto(base);await safetyPage.getByRole('button',{name:'Not yet',exact:true}).click();await safetyPage.getByRole('link',{name:'Responsible consumption & support',exact:true}).click();await safetyPage.getByRole('heading',{name:'Responsible Consumption',exact:true}).waitFor();assert.equal(await safetyPage.getByRole('dialog').count(),0);await safetyPage.getByRole('heading',{name:'Suspected alcohol overdose: call 911',exact:true}).waitFor();assert.equal(await safetyPage.getByRole('link',{name:'Call SAMHSA: 1-800-662-4357'}).getAttribute('href'),'tel:18006624357');await safetyPage.goto(base+'/policies/privacy');await safetyPage.getByRole('heading',{name:'Privacy Notice',exact:true}).waitFor();assert.equal(await safetyPage.getByRole('dialog').count(),0);await safetyPage.goto(base+'/spirits');await safetyPage.getByRole('dialog').waitFor();await safetyContext.close();
+ assert.deepEqual(errors,[]);console.log('Browser portfolio flow passed: brand navigation, Whitefish filters and 13 images, Copper Pirates bottle, product inquiry context, disabled commerce, SQL inquiry submission, mobile layouts, 14 signature drinks, policy access after age decline, updated About and Contact imagery.');
 }finally{
  if(browser)await browser.close();if(vite)await vite.close();if(api)await new Promise(r=>api.close(r));if(pool)await pool.end();await wire.stop();await db.close();
 }

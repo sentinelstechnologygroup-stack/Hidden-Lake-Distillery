@@ -10,6 +10,10 @@ Business details come from Justin Meccia’s October 18, 2026 email: Hidden Lake
 
 Distributor/contact forms require the configured API/database below. A direct email link remains available independently. Preview indexing stays disabled pending owner review. See docs/ASSETS.md for supplied asset provenance and remaining content questions.
 
+## Signature drinks and policy review
+
+/cocktails presents the 14 supplied signature drinks with ingredient lists and zero-proof options. /policies/privacy, /policies/terms and /policies/responsible contain expanded owner-review drafts. Policy pages are accessible without age confirmation. See [compliance review](docs/COMPLIANCE-REVIEW.md) for verified sources and unresolved launch requirements; these pages do not certify regulatory compliance. The owner confirms a retail/bar license as well as the DSM license; exact privileges still require document review.
+
 ## Run locally
 
 Requires Node 24 and PostgreSQL 16 or later.

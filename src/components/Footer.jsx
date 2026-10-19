@@ -23,7 +23,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {[
                 { label: "Products", path: "/spirits" },
-                { label: "Cocktails", path: "/cocktails" },
+                { label: "Signature Drinks", path: "/cocktails" },
   { label: "The Craft", path: "/craft" },
                 { label: "Our Story", path: "/about" },
                 { label: "Distribution", path: "/distribution" },
@@ -57,7 +57,7 @@ export default function Footer() {
         <div className="hairline my-10" />
 
         <div className="flex flex-col gap-4">
-          <p className="text-muted-foreground leading-relaxed">Distilled, Bottled and Labeled at<br />Hidden Lake Distillery<br />2134 US Hwy 2 E.<br />Kalispell, MT 59901</p><p className="text-sm text-muted-foreground">Owned and operated by Table 62 LLC · Montana DSM license holder</p>
+          <p className="text-muted-foreground leading-relaxed">Distilled, Bottled and Labeled at<br />Hidden Lake Distillery<br />2134 US Hwy 2 E.<br />Kalispell, MT 59901</p><p className="text-sm text-muted-foreground">Responsible advertiser: Table 62 LLC · Hidden Lake Distillery · Kalispell, Montana. Montana DSM license holder.</p>
         </div>
         <div className="hairline my-6" />
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
