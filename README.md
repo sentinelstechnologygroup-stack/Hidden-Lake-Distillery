@@ -10,6 +10,10 @@ Business details come from Justin Meccia’s October 18, 2026 email: Hidden Lake
 
 Distributor/contact forms require the configured API/database below. A direct email link remains available independently. Preview indexing stays disabled pending owner review. See docs/ASSETS.md for supplied asset provenance and remaining content questions.
 
+## Brand assets
+
+The refined owner-supplied Hidden Lake logo is public/images/hidden-lake-logo-master.png (transparent master) and public/images/hidden-lake-logo.png (trimmed web export). The shared BrandMark applies the site copper tint in CSS and appears in the header, footer, homepage seal and age confirmation. Favicons use the exact central emblem from the master, with PNG sizes 16/32/48/192/512, favicon.ico, a 180px Apple touch icon and site.webmanifest.
+
 ## Signature drinks and policy review
 
 /cocktails presents the 14 supplied signature drinks with ingredient lists and zero-proof options. /policies/privacy, /policies/terms and /policies/responsible contain expanded owner-review drafts. Policy pages are accessible without age confirmation. See [compliance review](docs/COMPLIANCE-REVIEW.md) for verified sources and unresolved launch requirements; these pages do not certify regulatory compliance. The owner confirms a retail/bar license as well as the DSM license; exact privileges still require document review.

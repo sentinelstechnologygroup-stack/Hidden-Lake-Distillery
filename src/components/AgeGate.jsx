@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import BrandMark from "@/components/BrandMark";
 import { distillery } from "@/data/spirits";
 
 const STORAGE_KEY = "cpd_age_verified";
@@ -49,6 +50,7 @@ export default function AgeGate() {
       <div className="absolute inset-0 bg-background/85 backdrop-blur-sm" />
 
       <div className="relative z-10 mx-auto max-w-lg px-8 text-center">
+        <div className="age-gate-brand"><BrandMark/></div>
         {denied ? (
           <div className="animate-fade-in">
             <p className="font-label text-xs text-copper mb-6">Access Denied</p>

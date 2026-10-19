@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowDown, Mountain } from "lucide-react";
+import { ArrowRight, ArrowDown } from "lucide-react";
 import BrandCollections from "@/components/BrandCollections";
+import BrandMark from "@/components/BrandMark";
 
 export default function Home() {
   return <div className="distillery-site">
@@ -13,7 +14,7 @@ export default function Home() {
         <p className="hero-intro">Montana roots. Independent spirit.<br/>The home of Whitefish &amp; Copper Pirates.</p>
         <div className="hero-actions"><Link to="/spirits" className="lake-button">Discover our spirits <ArrowRight size={17}/></Link><Link to="/distribution" className="text-button">For the trade <ArrowUpRightIcon/></Link></div>
       </div>
-      <div className="hero-seal" aria-hidden="true"><Mountain size={37}/><span>Hidden Lake</span><strong>Montana</strong><small>Independent spirit</small></div>
+      <div className="hero-seal" aria-hidden="true"><BrandMark/></div>
       <div className="hero-bottom page-width"><a href="#our-brands" className="eyebrow">The spirits of Hidden Lake <ArrowDown size={15}/></a><span>Distillery atmosphere · illustrated concept</span></div>
     </section>
     <div className="heritage-strip"><span>Distilled in Montana</span><i>✦</i><span>Whitefish Handcrafted Spirits</span><i>✦</i><span>Copper Pirates Rum</span><i>✦</i><span>Hidden Lake Distillery</span></div>

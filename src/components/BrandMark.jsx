@@ -1,1 +1,1 @@
-export default function BrandMark(){return <span className="inline-flex flex-col"><span className="font-display font-semibold text-2xl sm:text-3xl leading-none text-[#e0b678]">Hidden Lake</span><span className="font-label text-[10px] tracking-[.35em] text-parchment mt-2">Distillery · Montana</span></span>;}
+export default function BrandMark(){return <img src="/images/hidden-lake-logo.png" alt="Hidden Lake Distillery" className="brand-logo" width="1024" height="927"/>;}
