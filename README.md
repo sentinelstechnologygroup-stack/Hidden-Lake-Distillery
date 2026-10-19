@@ -4,7 +4,7 @@ Producer website for Hidden Lake Distillery in Kalispell, Montana, featuring Whi
 
 ## Current website
 
-The site promotes the distillery and distributor inquiries. Whitefish displays 13 supplied bottle photographs; Copper Pirates displays a clearly labeled packaging concept credited to Treeline Creative. Current expression availability, specifications and trade terms are confirmed directly. No public pricing, shopping, liquor sales or merchandise checkout is offered. Frontend commerce is disabled; keep COMMERCE_ENABLED false on the server.
+The site promotes the distillery and distributor inquiries. The Products page leads to dedicated /spirits/whitefish and /spirits/copper-pirates brand pages. Whitefish displays 13 supplied bottle photographs with category filters; Copper Pirates displays the owner-supplied front bottle visualization, labeled as a packaging concept. Product-specific links prefill the distributor inquiry message. The homepage restores the original cinematic distillery atmosphere, with distinct cream/forest Whitefish and charcoal/copper Copper Pirates presentations. Current expression availability, specifications and trade terms are confirmed directly. No public pricing, shopping, liquor sales or merchandise checkout is offered. Frontend commerce is disabled; keep COMMERCE_ENABLED false on the server.
 
 Business details come from Justin Meccia’s October 18, 2026 email: Hidden Lake Distillery is owned and operated by Table 62 LLC (Montana DSM license holder), at 2134 US Hwy 2 E., Kalispell, MT 59901. Public contact: distillgrillchill@gmail.com. Poynt by GoDaddy is the current POS; no POS integration is needed for this scope.
 

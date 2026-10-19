@@ -41,7 +41,7 @@ export default function Navbar() {
               key={l.path}
               to={l.path}
               className={`font-label text-sm font-semibold tracking-wider py-3 transition-colors ${
-                location.pathname === l.path
+                (location.pathname === l.path || (l.path === "/spirits" && location.pathname.startsWith("/spirits/")))
                   ? "text-[#ffd092] underline underline-offset-8 decoration-2"
                   : "text-[#fff4e1] hover:text-[#ffd092]"
               }`}
@@ -106,7 +106,7 @@ export default function Navbar() {
                 key={l.path}
                 to={l.path}
                 className={`font-label text-base font-semibold tracking-wider min-h-12 flex items-center px-3 rounded-md hover:bg-white/10 ${
-                  location.pathname === l.path
+                  (location.pathname === l.path || (l.path === "/spirits" && location.pathname.startsWith("/spirits/")))
                     ? "text-[#ffd092] underline underline-offset-8 decoration-2"
                     : "text-[#fff4e1]"
                 }`}

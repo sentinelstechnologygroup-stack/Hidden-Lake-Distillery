@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 const brand="Hidden Lake Distillery";
 const routes={
+ "/spirits/whitefish":["Whitefish Handcrafted Spirits","Explore the Whitefish collection of rum, gin, vodka, whiskey and specialty spirits from Hidden Lake Distillery."],
+ "/spirits/copper-pirates":["Copper Pirates Montana Rum","Discover Copper Pirates Rum with Spices from Hidden Lake Distillery in Kalispell, Montana. Explore the bottle concept and trade opportunities."],
  "/":["Montana Spirits in Kalispell","Discover Hidden Lake Distillery, producer of Whitefish Handcrafted Spirits and Copper Pirates in Kalispell, Montana."],
  "/spirits":["Our Brands & Products","Explore Whitefish Handcrafted Spirits and Copper Pirates rum from Hidden Lake Distillery. Request product and distribution information."],
  "/distribution":["Distributor & Trade Inquiries","Connect with Hidden Lake Distillery about Whitefish, Copper Pirates and distribution opportunities for your market."],

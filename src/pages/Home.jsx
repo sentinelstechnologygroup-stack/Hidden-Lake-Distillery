@@ -1,10 +1,31 @@
-import {Link} from 'react-router-dom';
-import {ArrowRight} from 'lucide-react';
-export default function Home(){return <div>
-<section className="pt-36 pb-20 md:pt-44 md:pb-28 border-b border-border relative overflow-hidden"><div className="absolute inset-0 relaunch-contours opacity-20"/><div className="relative max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 items-center">
-<div><p className="font-label text-xs text-copper mb-7">Hidden Lake Distillery · Kalispell, Montana</p><h1 className="font-display text-6xl sm:text-7xl lg:text-8xl leading-[.95] text-parchment">Montana roots.<br/><em className="text-copper">Independent spirit.</em></h1><p className="text-xl text-muted-foreground mt-7 max-w-xl">From Whitefish Handcrafted Spirits to Copper Pirates rum, discover the brands produced by Hidden Lake Distillery in Montana’s Flathead Valley.</p><div className="flex flex-wrap gap-4 mt-9"><Link className="bg-copper text-background px-7 py-4 font-label text-sm" to="/spirits">Explore our brands <ArrowRight className="inline ml-2" size={16}/></Link><Link className="border border-copper px-7 py-4 font-label text-sm" to="/distribution">Become a trade partner</Link></div></div>
-<figure className="bg-[#f8f5ed] border border-copper/40 shadow-2xl"><div className="grid grid-cols-3 items-end p-4"><img src="/images/whitefish/whitefish-0.jpg" alt="Whitefish Rum with Spices bottle"/><img src="/images/whitefish/whitefish-10.jpg" alt="Whitefish Kintla Peak Gin bottle"/><img src="/images/whitefish/whitefish-3.jpg" alt="Whitefish Highline Rye bottle"/></div><figcaption className="text-[#403223] text-sm px-6 pb-5">Whitefish Handcrafted Spirits · Made at Hidden Lake Distillery</figcaption></figure>
-</div></section>
-<section className="max-w-7xl mx-auto px-6 lg:px-10 py-20"><p className="font-label text-copper text-xs mb-5">Our spirits portfolio</p><h2 className="font-display text-5xl mb-10">One distillery. Two distinct brands.</h2><div className="grid md:grid-cols-2 gap-8">{[['Whitefish Handcrafted Spirits','Explore a collection spanning rum, gin, vodka, whiskey and specialty spirits.','whitefish'],['Copper Pirates','A Montana rum brand with a character all its own. Converting Cowboys to Pirates. Everyday.','copper-pirates']].map(([name,copy,id])=><Link key={id} to={'/spirits#'+id} className="bg-card border border-border p-8 md:p-10 hover:border-copper transition-colors"><p className="font-label text-xs text-copper mb-4">Hidden Lake Distillery presents</p><h3 className="font-display text-4xl mb-5">{name}</h3><p className="text-xl text-muted-foreground">{copy}</p><span className="inline-flex items-center gap-3 text-copper mt-7">Explore the brand <ArrowRight size={18}/></span></Link>)}</div></section>
-<section className="bg-card border-y border-border"><div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 grid md:grid-cols-2 gap-12 items-center"><img loading="lazy" src="/images/distillery-community.jpg" alt="Guests gathered at the distillery bar during a community event" className="w-full aspect-[4/3] object-cover"/><div><p className="font-label text-copper text-xs mb-5">The people. The place. The spirits.</p><h2 className="font-display text-5xl mb-6">Rooted in the Flathead.</h2><p className="text-xl text-muted-foreground">Hidden Lake Distillery brings our spirits together under one name, from the Whitefish collection to the Copper Pirates identity. Our home is Kalispell, Montana.</p><Link to="/about" className="inline-block underline text-copper mt-6">Meet the distillery</Link></div></div></section>
-<section className="max-w-7xl mx-auto px-6 lg:px-10 py-20 grid md:grid-cols-2 gap-10"><h2 className="font-display text-5xl">Bring Hidden Lake<br/>to your market.</h2><div><p className="text-xl text-muted-foreground">We welcome distributor and trade conversations about Whitefish, Copper Pirates, or the full portfolio. Talk with us about product information, your territory, and the next steps for working together.</p><Link to="/distribution" className="inline-block bg-copper text-background px-7 py-4 mt-7 font-label text-sm">Start a distributor conversation</Link></div></section></div>;}
+import { Link } from "react-router-dom";
+import { ArrowRight, ArrowDown, Mountain } from "lucide-react";
+import BrandCollections from "@/components/BrandCollections";
+
+export default function Home() {
+  return <div className="distillery-site">
+    <section className="lake-hero">
+      <img className="lake-hero-scene" src="/images/distillery-hero.png" alt="Illustrated copper stills in a mountain distillery"/>
+      <div className="lake-hero-shade"/>
+      <div className="hero-content page-width">
+        <p className="eyebrow hero-location"><span/> Kalispell, Montana · Est. in the Flathead</p>
+        <h1>Hidden Lake<span>Distillery.</span></h1>
+        <p className="hero-intro">Montana roots. Independent spirit.<br/>The home of Whitefish &amp; Copper Pirates.</p>
+        <div className="hero-actions"><Link to="/spirits" className="lake-button">Discover our spirits <ArrowRight size={17}/></Link><Link to="/distribution" className="text-button">For the trade <ArrowUpRightIcon/></Link></div>
+      </div>
+      <div className="hero-seal" aria-hidden="true"><Mountain size={37}/><span>Hidden Lake</span><strong>Montana</strong><small>Independent spirit</small></div>
+      <div className="hero-bottom page-width"><a href="#our-brands" className="eyebrow">The spirits of Hidden Lake <ArrowDown size={15}/></a><span>Distillery atmosphere · illustrated concept</span></div>
+    </section>
+    <div className="heritage-strip"><span>Distilled in Montana</span><i>✦</i><span>Whitefish Handcrafted Spirits</span><i>✦</i><span>Copper Pirates Rum</span><i>✦</i><span>Hidden Lake Distillery</span></div>
+    <section id="our-brands" className="portfolio-section page-width">
+      <div className="section-intro"><div><p className="eyebrow">The house of Hidden Lake</p><h2>One place.<br/><em>Two unmistakable spirits.</em></h2></div><p>Different characters. Shared roots. Explore the Whitefish collection and the bold world of Copper Pirates, brought together by Hidden Lake Distillery in Montana’s Flathead Valley.</p></div>
+      <BrandCollections/>
+    </section>
+    <section className="lake-story">
+      <div className="story-photo"><img loading="lazy" src="/images/distillery-community.jpg" alt="People gathered around the bar at a distillery community event"/><span className="photo-caption">Good spirits bring people together.</span></div>
+      <div className="story-copy"><p className="eyebrow">Our place in Montana</p><h2>A little hidden.<br/><em>A lot of spirit.</em></h2><p>Our home is Kalispell. Our portfolio brings together the variety of Whitefish Handcrafted Spirits and the distinct character of Copper Pirates rum.</p><p>Behind both is Hidden Lake Distillery, owned and operated by Table 62 LLC. Get to know the place behind the bottle.</p><Link to="/about" className="text-button">The Hidden Lake story <ArrowRight size={17}/></Link></div>
+    </section>
+    <section className="trade-banner page-width"><p className="eyebrow">For distributors &amp; trade partners</p><h2>Good spirits.<br/><em>Great partnerships.</em></h2><p>Find a place for Hidden Lake in your portfolio. Let’s talk brands, your market, and what comes next.</p><Link to="/distribution" className="lake-button">Start a trade conversation <ArrowRight size={17}/></Link></section>
+  </div>;
+}
+function ArrowUpRightIcon(){return <span aria-hidden="true">↗</span>;}

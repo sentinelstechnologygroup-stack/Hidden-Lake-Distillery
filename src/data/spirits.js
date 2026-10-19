@@ -1,10 +1,11 @@
-// Copper Pirates brand settings and locally served model images.
+// Hidden Lake business details and locally served imagery.
 export const distillery = {
   name: "Hidden Lake Distillery",
+  address: "2134 US Hwy 2 E.",
   city: "Kalispell",
   state: "Montana",
   zip: "59901",
-  coordinates: "48.1978° N, 114.3161° W",
+  coordinates: "Kalispell · Flathead Valley",
   tagline: "Montana roots. Independent spirit.",
   heroImage:
     "/images/distillery-hero.png",

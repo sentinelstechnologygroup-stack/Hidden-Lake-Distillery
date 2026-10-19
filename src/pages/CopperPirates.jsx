@@ -1,0 +1,15 @@
+import { Link } from "react-router-dom";
+import { ArrowLeft, ArrowRight, Compass } from "lucide-react";
+export default function CopperPirates(){
+  return <div className="distillery-site pirates-page">
+    <section className="pirates-hero">
+      <div className="pirates-glow"/>
+      <div className="page-width pirates-hero-grid"><div className="pirates-hero-copy"><Link to="/spirits" className="back-link"><ArrowLeft size={15}/> All brands</Link><p className="eyebrow">Hidden Lake Distillery presents</p><h1>Copper<br/><em>Pirates.</em></h1><p className="pirates-tagline">Converting Cowboys to Pirates.<br/><span>Everyday.</span></p><p className="pirates-intro">Montana roots. A rebellious spirit. Discover the rum brand with Flathead Lake at the heart of its identity.</p><a href="#pirates-rum" className="lake-button">Meet the rum <ArrowRight size={17}/></a></div>
+      <figure className="pirates-hero-figure"><img src="/images/copper-pirates-front.png" alt="Copper Pirates Montana Rum bottle rendering with copper Flathead Lake artwork"/><figcaption>Supplied packaging visualization · final packaging subject to confirmation</figcaption></figure></div>
+      <div className="pirates-coordinate" aria-hidden="true">MONTANA RUM / FLATHEAD SPIRIT / HIDDEN LAKE</div>
+    </section>
+    <section id="pirates-rum" className="page-width rum-story"><div><p className="eyebrow">The Copper Pirates offering</p><h2>Rum with spices.<br/><em>Spirit without compromise.</em></h2></div><div><p>Copper Pirates Montana Rum brings a bold identity to rum from Hidden Lake Distillery. The supplied bottle artwork pairs copper topography with a Flathead Lake map—a connection to the region in every detail.</p><p>The current presentation features Rum with Spices. Contact our team for approved tasting notes, ingredients, final specifications and current availability.</p><dl className="rum-facts"><div><dt>Brand</dt><dd>Copper Pirates</dd></div><div><dt>Expression shown</dt><dd>Rum with Spices</dd></div><div><dt>Producer</dt><dd>Hidden Lake Distillery</dd></div><div><dt>Home</dt><dd>Kalispell, Montana</dd></div></dl><Link to="/distribution?brand=copper-pirates&product=Rum%20with%20Spices" className="lake-button">Request product information <ArrowRight size={17}/></Link></div></section>
+    <section className="pirates-manifesto"><Compass size={42} strokeWidth={1}/><p className="eyebrow">A Montana original in the making</p><h2>A different heading.<br/><em>The same home port.</em></h2><p>Distinct from Whitefish. Rooted in Hidden Lake.<br/>Explore a new conversation for your spirits portfolio.</p><Link to="/distribution?brand=copper-pirates" className="text-button">Talk Copper Pirates distribution <ArrowRight size={17}/></Link></section>
+    <div className="page-width brand-end"><Link to="/spirits/whitefish" className="back-link"><ArrowLeft size={16}/> Explore Whitefish Handcrafted Spirits</Link><p>Packaging visualization based on supplied artwork. Original label concept: Treeline Creative. Product details are confirmed directly with the producer.</p></div>
+  </div>;
+}

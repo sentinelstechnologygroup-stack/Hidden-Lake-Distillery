@@ -12,6 +12,8 @@ import Layout from '@/components/Layout';
 import Home from '@/pages/Home';
 import Cocktails from '@/pages/Cocktails';
 import Spirits from '@/pages/Spirits';
+import Whitefish from '@/pages/Whitefish';
+import CopperPirates from '@/pages/CopperPirates';
 import ProductDetail from '@/pages/ProductDetail';
 import Craft from '@/pages/Craft';
 import About from '@/pages/About';
@@ -62,6 +64,9 @@ const AuthenticatedApp = () => {
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/spirits" element={<Spirits />} />
+        <Route path="/products" element={<Navigate to="/spirits" replace />} />
+        <Route path="/spirits/whitefish" element={<Whitefish />} />
+        <Route path="/spirits/copper-pirates" element={<CopperPirates />} />
         <Route path="/spirits/:slug" element={commerceEnabled?<ProductDetail />:<Navigate to="/spirits" replace />} />
         <Route path="/distribution" element={<Distribution />} />
         <Route path="/cocktails" element={<Cocktails />} />
