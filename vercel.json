@@ -6,7 +6,7 @@
   "functions": { "api/index.mjs": { "maxDuration": 60 } },
   "rewrites": [
     { "source": "/api/:path*", "destination": "/api/index" },
-    { "source": "/((?!api(?:/|$)|assets/|images/|favicon|apple-touch-icon|robots\\.txt|sitemap\\.xml).*)", "destination": "/index.html" }
+    { "source": "/((?!api(?:/|$)|assets/|images/|animations/|downloads/|favicon|apple-touch-icon|site\\.webmanifest|robots\\.txt|sitemap\\.xml).*)", "destination": "/index.html" }
   ],
   "headers": [
     { "source": "/(.*)", "headers": [

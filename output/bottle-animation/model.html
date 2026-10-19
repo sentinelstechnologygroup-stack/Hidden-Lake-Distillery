@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Copper Pirates · round bottle rotation</title>
+<style>html,body{margin:0;background:#202326;width:100%;height:100%;overflow:hidden}canvas{display:block;width:100%;height:100%}</style>
+<script type="module">
+import * as THREE from './vendor/three.module.min.js';
+
+// Round, lathed concept geometry. Artwork is mapped directly from the supplied
+// Treeline proof; dimensions are illustrative until the production bottle exists.
+const scene = new THREE.Scene();
+scene.background = new THREE.Color('#202326');
+const renderer = new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
+renderer.setPixelRatio(1);
+renderer.setSize(innerWidth,innerHeight);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.08;
+document.body.appendChild(renderer.domElement);
+const aspect = innerWidth / innerHeight;
+const camera = new THREE.OrthographicCamera(-3.75*aspect,3.75*aspect,3.75,-3.75,.1,100);
+camera.position.set(0,3.6,14);
+camera.lookAt(0,3.16,0);
+
+// A photographic softbox environment supplies curved highlights in the glass.
+const studio = new THREE.Scene();
+studio.background = new THREE.Color('#777772');
+function softbox(x,y,z,w,h,color,intensity=1){
+ const panel = new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({color:new THREE.Color(color).multiplyScalar(intensity)}));
+ panel.position.set(x,y,z); panel.lookAt(0,3,0);studio.add(panel);
+}
+softbox(-4,4,5,2.5,9,'#ffffff',4);
+softbox(4,4,2,1.2,10,'#ffffff',3);
+softbox(0,8,-2,7,3,'#fff5e4',3);
+softbox(1,3,-6,5,7,'#fffaf0',2);
+softbox(0,3,7,2.5,7,'#252628',.5);
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(studio,.04).texture;
+scene.add(new THREE.HemisphereLight('#ffffff','#8b7961',2.1));
+const key = new THREE.DirectionalLight('#fff5e6',3); key.position.set(-4,7,5);scene.add(key);
+const fill = new THREE.DirectionalLight('#dfeaff',2);fill.position.set(4,5,-2);scene.add(fill);
+
+const bottle = new THREE.Group();scene.add(bottle);
+const glass = new THREE.MeshPhysicalMaterial({color:'#ffffff',roughness:.055,metalness:0,transparent:true,opacity:.2,depthWrite:false,ior:1.48,envMapIntensity:1.3,clearcoat:1,clearcoatRoughness:.03});
+glass.onBeforeCompile=shader=>{shader.fragmentShader=shader.fragmentShader.replace('#include <normal_fragment_begin>','#include <normal_fragment_begin>\nfloat glassRim = pow(1.0 - abs(dot(normal, normalize(vViewPosition))), 2.0);\ndiffuseColor.a = 0.045 + glassRim * 0.65;');};
+// One exterior surface only. No inner bottle, sleeve or liquid cylinder: the
+// owner specifically rejected the nested-cylinder look in the earlier proof.
+const profile = [[.001,.1],[.72,.1],[.88,.11],[.96,.16],[.995,.23],[1,.34],[1,4.55],[.997,4.62],[.98,4.73],[.94,4.84],[.86,4.96],[.73,5.07],[.56,5.16],[.43,5.23],[.395,5.32],[.39,5.45],[.39,5.96],[.43,5.99],[.435,6.08],[.42,6.15],[.35,6.18]];
+const body = new THREE.Mesh(new THREE.LatheGeometry(profile.map(p=>new THREE.Vector2(...p)),160),glass);
+bottle.add(body);
+const base = new THREE.Mesh(new THREE.CylinderGeometry(.94,.92,.16,128),glass);base.position.y=.22;bottle.add(base);
+for(const [radius,y] of [[.955,.18],[.975,.28],[.965,.38],[.42,6.07]]){const ring=new THREE.Mesh(new THREE.TorusGeometry(radius,.022,12,128),glass);ring.rotation.x=Math.PI/2;ring.position.y=y;bottle.add(ring);}
+
+// Slightly varied procedural wood and cork are model materials, not photo edits.
+function materialCanvas(w,h,draw){const c=document.createElement('canvas');c.width=w;c.height=h;draw(c.getContext('2d'),w,h);const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=8;return t;}
+let seed=19;const rand=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296;};
+const wood=materialCanvas(512,256,(c,w,h)=>{c.fillStyle='#47291b';c.fillRect(0,0,w,h);for(let i=0;i<2300;i++){const v=rand();c.strokeStyle=`rgba(${v>.5?'173,111,65':'20,10,4'},${.04+rand()*.16})`;c.lineWidth=.3+rand()*1.7;c.beginPath();const x=rand()*w,y=rand()*h;c.moveTo(x,y);c.bezierCurveTo(x+5,y+30,x-7,y+70,x+rand()*10,y+110);c.stroke();}});
+const cork=materialCanvas(256,256,(c,w,h)=>{c.fillStyle='#cbb38c';c.fillRect(0,0,w,h);for(let i=0;i<3500;i++){c.fillStyle=rand()>.5?'#a78e6b':'#e4d0ac';c.globalAlpha=.4;c.fillRect(rand()*w,rand()*h,rand()*3+1,rand()*2+1);}});
+const stopper=new THREE.Mesh(new THREE.CylinderGeometry(.31,.3,.48,96),new THREE.MeshStandardMaterial({map:cork,roughness:.95}));stopper.position.y=5.99;bottle.add(stopper);
+const cap=new THREE.Mesh(new THREE.CylinderGeometry(.47,.47,.32,128),new THREE.MeshStandardMaterial({map:wood,roughness:.4}));cap.position.y=6.28;bottle.add(cap);
+for(const y of [6.13,6.43]){const ring=new THREE.Mesh(new THREE.TorusGeometry(.452,.017,8,96),new THREE.MeshStandardMaterial({color:'#3c2417',roughness:.5}));ring.rotation.x=Math.PI/2;ring.position.y=y;bottle.add(ring);}
+
+const proof = await new Promise((resolve,reject)=>{const i=new Image();i.onload=()=>resolve(i);i.onerror=reject;i.src='./label-proof.png';});
+function proofTexture(x,y,w,h,flip=false){return materialCanvas(1024,Math.round(1024*h/w),(c,cw,ch)=>{if(flip){c.translate(cw,0);c.scale(-1,1);}c.drawImage(proof,x*proof.width,y*proof.height,w*proof.width,h*proof.height,0,0,cw,ch);});}
+function panel(radius,low,high,center,span,texture,side=THREE.FrontSide,metalness=.3){
+ const geometry=new THREE.CylinderGeometry(radius,radius,high-low,120,1,true,center-span/2,span);
+ // CylinderGeometry maps increasing angle to increasing U. Correct orientation
+ // for the viewer on the outside, and separately for the inward-facing artwork.
+ const material=new THREE.MeshStandardMaterial({map:texture,side,roughness:.4,metalness,envMapIntensity:.55});
+ const mesh=new THREE.Mesh(geometry,material);mesh.position.y=(low+high)/2;bottle.add(mesh);return mesh;
+}
+// Inner-facing copper map and outer-facing charcoal back are two sides of one
+// rear label, leaving the rest of the cylinder clear at the side angles.
+const backCenter=Math.PI,backSpan=2.22;
+panel(1.005,.52,4.49,backCenter,backSpan,proofTexture(.819,.236,.153,.501),THREE.FrontSide,.18);
+panel(.998,.52,4.49,backCenter,backSpan,proofTexture(.0282,.236,.153,.501,true),THREE.BackSide,.32);
+
+// Upper front logo: sample the supplied artwork and key the white proof paper
+// in the material shader, retaining the original lettering on clear glass.
+const logoTexture=proofTexture(.273,.268,.100,.111);
+const logoMat=new THREE.MeshStandardMaterial({map:logoTexture,metalness:.45,roughness:.3,side:THREE.FrontSide});
+logoMat.onBeforeCompile=shader=>{shader.fragmentShader=shader.fragmentShader.replace('#include <map_fragment>','#include <map_fragment>\nif (min(diffuseColor.r,min(diffuseColor.g,diffuseColor.b)) > 0.70) discard;');};
+const logo=new THREE.Mesh(new THREE.CylinderGeometry(1.012,1.012,1.05,96,1,true,-.72,1.44),logoMat);logo.position.y=3.51;bottle.add(logo);
+// Original front information panel and the skull strip wrapped around the rest.
+panel(1.015,.87,1.49,0,1.72,proofTexture(.527,.585,.110,.081),THREE.FrontSide,.15);
+for(const side of [-1,1]) panel(1.012,.87,1.49,side*Math.PI/2,1.17,proofTexture(.182,.583,.291,.084),THREE.FrontSide,.12);
+
+const seal=materialCanvas(256,1024,(c,w,h)=>{c.fillStyle='#242426';c.fillRect(0,0,w,h);c.fillStyle='#b47d3d';c.fillRect(0,0,10,h);c.fillRect(w-10,0,10,h);c.fillRect(0,h-10,w,10);c.fillStyle='#faf7ee';c.font='bold 73px Arial';c.textAlign='center';for(let i=0;i<6;i++)c.fillText('HIDDEN'[i],w/2,110+i*123);c.fillStyle='#c29454';c.font='76px Georgia';c.fillText('◒',w/2,940);});
+const capSeal=materialCanvas(128,256,(c,w,h)=>{c.fillStyle='#242426';c.fillRect(0,0,w,h);c.fillStyle='#b47d3d';c.fillRect(0,0,5,h);c.fillRect(w-5,0,5,h);});
+panel(.478,6.13,6.44,0,.65,capSeal,THREE.FrontSide,.25);
+// Keep one continuous-looking seal with the full lettering on the long neck.
+const neckSeal=panel(.405,5.39,6.14,0,.73,seal,THREE.FrontSide,.22);neckSeal.renderOrder=2;
+
+const shadowTexture=materialCanvas(256,256,(c,w,h)=>{const g=c.createRadialGradient(w/2,h/2,0,w/2,h/2,w/2);g.addColorStop(0,'rgba(45,32,19,.27)');g.addColorStop(.55,'rgba(45,32,19,.10)');g.addColorStop(1,'rgba(45,32,19,0)');c.fillStyle=g;c.fillRect(0,0,w,h);});
+const shadow=new THREE.Mesh(new THREE.PlaneGeometry(3.8,2.6),new THREE.MeshBasicMaterial({map:shadowTexture,transparent:true,depthWrite:false}));shadow.rotation.x=-Math.PI/2;shadow.position.y=.085;scene.add(shadow);
+
+window.renderBottle=(angle=0)=>{bottle.rotation.y=angle;renderer.render(scene,camera);};
+window.bottleReady=true;
+const manual=new URLSearchParams(location.search).has('manual');
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let paused=false,start=performance.now();
+window.addEventListener('keydown',e=>{if(e.code==='Space'){e.preventDefault();paused=!paused;}});
+function animate(now){if(!manual&&!reduced&&!paused)window.renderBottle((now-start)/18000*Math.PI*2);requestAnimationFrame(animate);}
+window.renderBottle(0);requestAnimationFrame(animate);
+</script>
+</html>
