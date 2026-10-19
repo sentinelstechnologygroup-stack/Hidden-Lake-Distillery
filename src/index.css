@@ -209,3 +209,21 @@ footer .brand-logo { width:185px; height:165px; margin:-15px 0 10px -9px; }
 .age-gate-brand { display:flex; justify-content:center; margin-bottom:22px; }
 .age-gate-brand .brand-logo { width:160px; height:140px; }
 @media(max-width:640px){.brand-logo { width:95px; height:72px; }.hero-seal .brand-logo { width:86px; height:86px; }footer .brand-logo { width:165px; height:150px; }.age-gate-brand .brand-logo { width:130px; height:115px; }}
+
+/* Our Story hero preserves the shelf photograph's full native frame. */
+.about-hero { position:relative; margin-top:80px; background:#101416; }
+.about-hero figure { margin:0; }
+.about-hero figure img { display:block; width:100%; height:auto; }
+.about-hero figure figcaption { position:absolute; bottom:18px; right:30px; z-index:2; margin:0; color:#e0d2bc; font-size:11px; text-align:right; }
+.about-hero-shade { position:absolute; inset:0; background:linear-gradient(90deg,#061011ce,transparent 85%),linear-gradient(0deg,#081014eb,transparent 75%); }
+.about-hero-copy { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding-bottom:85px; }
+.about-hero-copy h1 { font-size:clamp(48px,5.8vw,88px); line-height:.98; letter-spacing:-.035em; margin-top:22px; color:#f1e6d2; }
+.about-hero-copy h1 em { color:#e6b77f; }
+.about-hero-copy>p:not(.eyebrow) { color:#e2d7c7; font-size:22px; line-height:1.6; margin-top:25px; max-width:620px; }
+@media(max-width:640px){
+ .about-hero-shade { display:none; }
+ .about-hero-copy { position:relative; inset:auto; padding-block:35px 45px; }
+ .about-hero-copy h1 { font-size:47px; }
+ .about-hero-copy>p:not(.eyebrow) { font-size:21px; margin-top:23px; }
+ .about-hero figure figcaption { position:static; text-align:left; padding:10px 20px 0; font-size:10px; color:#ab9d89; }
+}

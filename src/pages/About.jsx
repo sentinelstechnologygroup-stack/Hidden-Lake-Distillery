@@ -3,8 +3,11 @@ import {ArrowRight} from "lucide-react";
 
 export default function About(){
  return <div className="distillery-site about-page">
-   <header className="page-width about-heading"><p className="eyebrow">Our story / Hidden Lake Distillery</p><h1>Hidden Lake Distillery.<br/><em>Made in Montana.</em></h1><p>The place behind Whitefish Handcrafted Spirits and Copper Pirates. One Montana producer, two distinct brand identities.</p></header>
-   <figure className="page-width about-shelf"><img src="/images/hidden-lake-bar-shelves.jpg" alt="Copper mugs, cocktail glasses and bottles on the shelves at Hidden Lake Distillery"/><figcaption>Inside Hidden Lake · supplied distillery photography</figcaption></figure>
+   <header className="about-hero">
+     <figure><img src="/images/hidden-lake-bar-shelves.jpg" alt="Copper mugs, cocktail glasses and bottles on the shelves at Hidden Lake Distillery"/><figcaption>Inside Hidden Lake · supplied distillery photography</figcaption></figure>
+     <div className="about-hero-shade" aria-hidden="true"/>
+     <div className="about-hero-copy page-width"><p className="eyebrow">Our story / Hidden Lake Distillery</p><h1>Hidden Lake Distillery.<br/><em>Made in Montana.</em></h1><p>The place behind Whitefish Handcrafted Spirits and Copper Pirates. One Montana producer, two distinct brand identities.</p></div>
+   </header>
    <section className="page-width about-story-grid"><div><p className="eyebrow">Kalispell · The Flathead Valley</p><h2>Different characters.<br/><em>Shared roots.</em></h2><p>Based in Kalispell in Montana’s Flathead Valley, Hidden Lake Distillery is the producer behind Whitefish Handcrafted Spirits and Copper Pirates.</p><p>Whitefish brings together a broad collection of spirits. Copper Pirates gives our rum a distinctive identity, with packaging inspired by Flathead Lake. Both have a home here at Hidden Lake Distillery.</p><h2>A portfolio built<br/><em>on relationships.</em></h2><p>We welcome distributors and trade partners who want to learn more about our brands. Product specifications, current availability, territory opportunities and commercial terms are discussed directly with our team.</p><p>Hidden Lake Distillery is owned and operated by Table 62 LLC, holder of the Montana DSM distillery license. The business also holds a retail/bar license; this website focuses on our spirits and distribution relationships.</p><Link to="/distribution" className="lake-button">Connect with our trade team <ArrowRight size={17}/></Link></div><figure><img loading="lazy" src="/images/whitefish-highline-rye-detail.jpg" alt="Whitefish Highline Rye bottles on a wooden distillery shelf"/><figcaption>Whitefish Highline Rye · from the Hidden Lake portfolio</figcaption></figure></section>
  </div>;
 }
