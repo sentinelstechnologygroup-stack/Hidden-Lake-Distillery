@@ -22,7 +22,7 @@ export default function Home() {
       <BrandCollections/>
     </section>
     <section className="lake-story">
-      <div className="story-photo"><img loading="lazy" src="/images/justin-at-hidden-lake.jpg" alt="Justin behind the bar at Hidden Lake Distillery"/><span className="photo-caption">Good spirits bring people together.</span></div>
+      <div className="story-photo"><img loading="lazy" src="/images/justin-at-hidden-lake-retouched-v2.png" alt="Justin behind the bar at Hidden Lake Distillery"/><span className="photo-caption">Good spirits bring people together.</span></div>
       <div className="story-copy"><p className="eyebrow">Our place in Montana</p><h2>A little hidden.<br/><em>A lot of spirit.</em></h2><p>Our home is Kalispell. Our portfolio brings together the variety of Whitefish Handcrafted Spirits and the distinct character of Copper Pirates rum.</p><p>Behind both is Hidden Lake Distillery, owned and operated by Table 62 LLC. Get to know the place behind the bottle.</p><Link to="/about" className="text-button">The Hidden Lake story <ArrowRight size={17}/></Link></div>
     </section>
     <section className="trade-banner page-width"><p className="eyebrow">For distributors &amp; trade partners</p><h2>Good spirits.<br/><em>Great partnerships.</em></h2><p>Find a place for Hidden Lake in your portfolio. Let’s talk brands, your market, and what comes next.</p><Link to="/distribution" className="lake-button">Start a trade conversation <ArrowRight size={17}/></Link></section>

@@ -10,7 +10,7 @@ The owner confirms a retail/bar license in addition to the DSM distillery licens
 - Public Privacy, Terms and Responsible Consumption pages are populated with owner-review drafts. Privacy reflects inquiry fields, browser age storage, conditional integrations and external Google Fonts requests. No fabricated retention period or automatic deletion process is promised.
 - Privacy/safety pages bypass the marketing age gate; the age dialog links to them, including after decline.
 - Responsible advertiser identity and location appear in the shared footer.
-- About now says Made in Montana and uses supplied shelf and rye-bottle photographs. Contact uses generated atmospheric concept imagery with a visible concept caption.
+- About now says Made in Montana and uses supplied shelf and rye-bottle photographs. Contact uses owner-approved generated atmospheric imagery; the owner requested removal of the public concept caption. Its generated provenance remains recorded here.
 - Corrected AI-restored advertisement: public/images/whitefish-gin-ad-restored-v2.png says NICE PANTS, SYDNEY. WE HAVE GREAT GINS. It is saved as an asset, not inserted into a public advertising page. The original photograph and v1 are not overwritten.
 
 ## Before public launch

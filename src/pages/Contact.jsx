@@ -28,7 +28,6 @@ export default function Contact() {
         subtitle="Questions about Hidden Lake Distillery, Whitefish or Copper Pirates? For trade opportunities, use our dedicated distributor inquiry page."
         image="/images/contact-trade-hero-concept.png"
         imageAlt="Illustrative spirits sample bottle and tasting glasses in a timber distillery setting"
-        caption="Illustrative concept · venue photography to follow"
       />
 
       <section className="py-20 md:py-28">
