@@ -132,7 +132,7 @@ html { scroll-padding-top: 6rem; }
 .collection-pirates h2 { font-style:italic; font-size:65px; color:#f1bb73; text-shadow:0 2px 20px #100b07; }
 .collection-pirates .collection-copy .eyebrow { max-width:180px; }.collection-pirates .collection-copy>p:not(.eyebrow) { padding-top:8px; }
 .lake-story { display:grid; grid-template-columns:1.1fr 1fr; background:#151e1b; border-block:1px solid #d0ae7533; }
-.story-photo { position:relative; min-height:560px; }.story-photo img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:35% 50%; }.story-photo::after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,#0008,transparent 50%); }
+.story-photo { position:relative; min-height:560px; }.story-photo img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 45%; }.story-photo::after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,#0008,transparent 50%); }
 .photo-caption { position:absolute; z-index:1; bottom:28px; left:36px; font-size:24px; font-style:italic; color:#fff0dc; }
 .story-copy { padding:80px clamp(30px,5vw,90px); align-self:center; }.story-copy>p:not(.eyebrow) { font-size:20px; line-height:1.6; color:#bcb8a9; margin-top:25px; }.story-copy .text-button { margin-top:20px; }
 .trade-banner { padding-block:100px 110px; text-align:center; }.trade-banner>p:not(.eyebrow) { font-size:21px; max-width:520px; margin:25px auto 30px; color:#bcb4a7; line-height:1.5; }
